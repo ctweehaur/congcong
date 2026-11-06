@@ -1,16 +1,14 @@
 // ==========================================================================
-// 📝 《匆匆》综合练习题库 (questions.js) - 马来西亚 UASA/KSSM 本地考卷标准版
-// 甲组：客观选择题（10题，含引文框、I/II/III/IV组合题、排序题、修辞作用题）
-// 乙组：主观简答题（15分制，含 [1分]/[2分] 采分点、KBAT题及随文语文知识题）
+// 📝 《匆匆》综合练习题库 (questions.js) - 画线词醒目下划线修复版
 // ==========================================================================
 
 const PT = (pts) => `<span style="display:inline-block; background:var(--primary-color); color:#fff; font-size:11px; font-weight:800; padding:0 5px; margin:0 3px; border-radius:4px;">[${pts}分]</span>`;
 
 const QUOTE_BOX = (text) => `<div style="margin:6px 0 10px 0; padding:8px 12px; background:var(--notebook-bg); border-left:3px solid var(--primary-color); border-radius:4px; font-weight:600; font-size:14.5px; color:var(--text-color); line-height:1.65;">${text}</div>`;
 
-// ==========================================================================
-// 甲组：现代文理解客观题（10分，每题1分）
-// ==========================================================================
+const HL = (text) => `<u style="text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px; color:var(--primary-color); font-weight:800;">${text}</u>`;
+
+// 甲组：现代文理解客观题（10分）
 const quizDataList = [
     {
         id: 1,
@@ -50,7 +48,7 @@ const quizDataList = [
     },
     {
         id: 4,
-        question: "在第3段中，作者通过哪些日常生活的具体细节来表现时间无处不在地流逝？<br><span style='font-weight:600; font-size:14px; display:inline-block; margin-top:6px; line-height:1.7;'>I 洗手时，日子从水盆里过去<br>II 吃饭时，日子从饭碗里过去<br>III 读书时，日子从书页间过去<br>IV 默默时，便从凝然的双眼前过去</span>",
+        question: "在第3段中，作者通过哪些日常生活的具体细节来表现时间无处不在地流逝？<br><span style='font-weight:500; font-size:14px; display:inline-block; margin-top:6px; line-height:1.7;'>I 洗手时，日子从水盆里过去<br>II 吃饭时，日子从饭碗里过去<br>III 读书时，日子从书页间过去<br>IV 默默时，便从凝然的双眼前过去</span>",
         options: [
             "A I、II 和 III",
             "B I、II 和 IV",
@@ -74,7 +72,7 @@ const quizDataList = [
     },
     {
         id: 6,
-        question: "梳理第3段中作者在一天之内感受时间流逝的脉络，按文章先后顺序排列。<br><span style='font-weight:600; font-size:14px; display:inline-block; margin-top:6px; line-height:1.7;'>I 掩面叹息新日闪过 &nbsp;&nbsp;&nbsp;&nbsp; II 早晨太阳悄悄挪移<br>III 躺在床上时间跨过 &nbsp;&nbsp;&nbsp;&nbsp; IV 伸手遮挽手边溜走</span>",
+        question: "梳理第3段中作者在一天之内感受时间流逝的脉络，按文章先后顺序排列。<br><span style='font-weight:500; font-size:14px; display:inline-block; margin-top:6px; line-height:1.7;'>I 掩面叹息新日闪过 &nbsp;&nbsp;&nbsp;&nbsp; II 早晨太阳悄悄挪移<br>III 躺在床上时间跨过 &nbsp;&nbsp;&nbsp;&nbsp; IV 伸手遮挽手边溜走</span>",
         options: [
             "A II → IV → III → I",
             "B II → III → IV → I",
@@ -86,7 +84,7 @@ const quizDataList = [
     },
     {
         id: 7,
-        question: `${QUOTE_BOX("我赤裸裸来到这世界，转眼间也将赤裸裸地回去罢？但不能平的，为什么偏要白白走这一遭啊？")}你如何理解第4段中第二个“赤裸裸”的深层含义？`,
+        question: `${QUOTE_BOX(`我赤裸裸来到这世界，转眼间也将${HL("赤裸裸")}地回去罢？但不能平的，为什么偏要白白走这一遭啊？`)}你如何理解第4段中第二个画线词“${HL("赤裸裸")}”的深层含义？`,
         options: [
             "A 离开人世时身上没有穿戴任何华丽的衣物。",
             "B 经历了漫长岁月，却没有留下任何生命痕迹与贡献。",
@@ -134,9 +132,7 @@ const quizDataList = [
     }
 ];
 
-// ==========================================================================
 // 乙组：现代文理解简答题（15分制 + 随文语文知识训练）
-// ==========================================================================
 const essayDataList = [
     {
         id: 1,
@@ -165,10 +161,12 @@ const essayDataList = [
     {
         id: 5,
         question: `（五）<strong>【随文语文知识训练】</strong>阅读下面的句子，完成第 a 至 d 小题： <span style="color:var(--primary-color);">[附加4分]</span><br>` +
-                  `a. “我的手确乎是<strong>渐渐</strong>空虚了。”——写出画线词语的<strong>词性</strong>。<br>` +
+                  `<div style="font-weight:500; margin-top:8px; line-height:1.9;">` +
+                  `a. “我的手确乎是${HL("渐渐")}空虚了。”——写出画线词语的<strong>词性</strong>。<br>` +
                   `b. “小屋里射进两三方斜斜的太阳。”——写出句中的一个<strong>偏正短语</strong>。<br>` +
                   `c. “去的<strong>尽管</strong>去了，来的<strong>尽管</strong>来着。”——写出上面句子的<strong>复句类型</strong>。<br>` +
-                  `d. “但不能平的，为什么偏要白白走这一遭啊？”——写出上面句子所采用的<strong>修辞手法</strong>。`,
+                  `d. “但不能平的，为什么偏要白白走这一遭啊？”——写出上面句子所采用的<strong>修辞手法</strong>。` +
+                  `</div>`,
         sampleAnswer: `a. 词性：<strong>副词</strong>${PT(1)}<br>` +
                       `b. 偏正短语：<strong>斜斜的太阳</strong>（或：两三方斜斜的太阳）${PT(1)}<br>` +
                       `c. 复句类型：<strong>并列复句</strong>（前后两分句分别说明“去的”与“来的”情况，地位平等）${PT(1)}<br>` +
